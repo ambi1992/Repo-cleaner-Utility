@@ -1,0 +1,12 @@
+{
+  "name": "repo-cleaner",
+  "version": "1.0.0",
+  "main": "repoCleaner.js",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "moment": "^2.29.1"
+  },
+  "scripts": {
+    "clean": "node repoCleaner.js"
+  }
+}
