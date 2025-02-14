@@ -1,0 +1,36 @@
+name: Run repoCleaner
+
+on:
+  # This can be configured to trigger on a schedule, for example:
+  schedule:
+    - cron: '0 0 * * 0'  # This will run the job every Sunday at midnight (UTC)
+
+  # Optionally, it can also be triggered manually through the GitHub Actions UI:
+  workflow_dispatch:
+
+jobs:
+  repoCleaner:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository containing the repoCleaner.js script
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Node.js (use version that matches your environment)
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  # Use the Node.js version that is compatible with your setup
+
+    # Step 3: Install dependencies (make sure you have package.json in your repository)
+    - name: Install dependencies
+      run: |
+        npm install
+
+    # Step 4: Run the repoCleaner script
+    - name: Run repoCleaner
+      run: |
+        node repoCleaner.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # This will give access to the repository for any necessary git operations
