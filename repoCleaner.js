@@ -104,7 +104,7 @@ async function cleanOldBranches(repoDir) {
 
 // Main function to read the list of repositories from the file and process each one
 async function processRepos() {
-    console.log('\nDirName: ${__dirname}');
+    console.log('\nPrint DirName:');
     const filePath = path.resolve(__dirname, 'masterRepoList.txt');
 
     if (!fs.existsSync(filePath)) {
