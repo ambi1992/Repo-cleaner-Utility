@@ -17,7 +17,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Read repositories from masterRepoList.txt
-      run: cat masterRepoList.txt
+      run: cat masterRepolist.txt
 
     # Step 2: Set up Node.js (use version that matches your environment)
     - name: Set up Node.js
